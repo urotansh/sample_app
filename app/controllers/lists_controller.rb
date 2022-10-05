@@ -8,6 +8,8 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
+      #3.フラッシュメッセージを定義し、詳細画面へリダイレクト
+      flash[:notice] = "投稿が成功しました"
       redirect_to list_path(@list.id)
     else
       render :new
