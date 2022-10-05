@@ -10,8 +10,8 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to list_path(@list.id)
     else
-      #:アクション名で、同じコントローラ内の別アクションのViewを表示
-      render :new
+      @lists = List.all
+      render :index
     end
   end
 
